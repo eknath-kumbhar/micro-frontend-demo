@@ -1,0 +1,19 @@
+{
+  "name": "micro-frontend-demo",
+  "version": "1.0.0",
+  "private": true,
+  "description": "KISS Micro Frontend demo with Module Federation, shared state & EventBus",
+  "scripts": {
+    "install:all": "npm install --prefix host && npm install --prefix remote-header && npm install --prefix remote-products && npm install --prefix remote-cart && npm install --prefix remote-user",
+    "start:host": "npm start --prefix host",
+    "start:header": "npm start --prefix remote-header",
+    "start:products": "npm start --prefix remote-products",
+    "start:cart": "npm start --prefix remote-cart",
+    "start:user": "npm start --prefix remote-user",
+    "start:all": "concurrently -n host,header,products,cart,user -c auto \"npm run start:host\" \"npm run start:header\" \"npm run start:products\" \"npm run start:cart\" \"npm run start:user\"",
+    "start": "npm run start:all"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.0"
+  }
+}
