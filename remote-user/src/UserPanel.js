@@ -15,7 +15,7 @@ function UserPanel() {
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   useEffect(() => {
-    let unsub = () => {};
+    let unsub = () => { };
 
     async function init() {
       try {

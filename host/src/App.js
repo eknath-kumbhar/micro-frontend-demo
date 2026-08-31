@@ -1,41 +1,35 @@
 import React, { useState } from 'react';
 import NotificationBar from './components/NotificationBar';
-import HeaderSection from './layout/HeaderSection';
-import ContentArea from './layout/ContentArea';
-import CartSidebar from './layout/CartSidebar';
 import useHostState from './hooks/useHostState';
 import createRemoteLoader from './remotes/createRemoteLoader';
+import { Outlet, useNavigate } from 'react-router';
 
 const Header = createRemoteLoader('Header', () => import('header/Header'));
-const Products = createRemoteLoader('Products', () => import('products/Products'));
-const Cart = createRemoteLoader('Cart', () => import('cart/Cart'));
-const UserPanel = createRemoteLoader('User Panel', () => import('user/UserPanel'));
 
-function App() {
+export default function App() {
   const [activeTab, setActiveTab] = useState('products');
   const { cartCount, user, notifications } = useHostState();
 
-  const contentMap = {
-    products: <Products />,
-    cart: <Cart />,
-    user: <UserPanel />,
-  };
+  const navigate = useNavigate();
 
   return (
     <div className="app">
       <NotificationBar notifications={notifications} />
 
-      <HeaderSection
-        headerComponent={Header}
+      <Header
         cartCount={cartCount}
         user={user}
-        onNavigate={setActiveTab}
+        onNavigate={(tab) => {
+          setActiveTab(tab);
+          navigate(tab);
+        }}
         activeTab={activeTab}
       />
 
       <main className="main">
-        <ContentArea activeTab={activeTab} contentMap={contentMap} />
-        <CartSidebar cartCount={cartCount} cartComponent={Cart} />
+        <div className="content">
+          <Outlet />
+        </div>
       </main>
 
       <footer className="footer">
@@ -46,4 +40,3 @@ function App() {
   );
 }
 
-export default App;

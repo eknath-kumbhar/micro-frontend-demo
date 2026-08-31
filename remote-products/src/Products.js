@@ -41,7 +41,7 @@ function Products() {
       const { default: eventBus, EVENTS } = await import('host/eventBus').catch(() => {
         // Ultimate fallback for pure standalone
         console.log('[Products] Standalone mode – would add:', product);
-        return { default: { emit: () => {} }, EVENTS: {} };
+        return { default: { emit: () => { } }, EVENTS: {} };
       });
       eventBus.emit(EVENTS.ADD_TO_CART || 'ADD_TO_CART', product);
     }

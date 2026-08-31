@@ -8,7 +8,7 @@ root.render(
   <Header
     cartCount={2}
     user={{ name: 'Demo User' }}
-    onNavigate={() => {}}
+    onNavigate={() => { }}
     activeTab="products"
   />
 );

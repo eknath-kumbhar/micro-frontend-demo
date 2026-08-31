@@ -12,7 +12,7 @@ function Cart({ mini = false }) {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    let unsub = () => {};
+    let unsub = () => { };
 
     async function init() {
       try {
