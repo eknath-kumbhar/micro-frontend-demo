@@ -2,7 +2,7 @@
   "name": "micro-frontend-demo",
   "version": "1.0.0",
   "private": true,
-  "description": "KISS Micro Frontend demo with Module Federation, shared state & EventBus",
+  "description": "Micro Frontend demo with Module Federation, shared state & EventBus",
   "scripts": {
     "install:all": "npm install --prefix host && npm install --prefix remote-header && npm install --prefix remote-products && npm install --prefix remote-cart && npm install --prefix remote-user",
     "start:host": "npm start --prefix host",

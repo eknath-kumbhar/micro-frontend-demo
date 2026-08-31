@@ -1,4 +1,4 @@
-# Micro Frontend Demo – Module Federation (KISS)
+# Micro Frontend Demo – Module Federation
 
 A simple, real-life example of **Micro Frontend Architecture** using **Webpack 5 Module Federation**.
 
@@ -20,12 +20,12 @@ A simple, real-life example of **Micro Frontend Architecture** using **Webpack 5
 
 ### Remotes (4)
 
-| Remote          | Port | Responsibility                     |
-|-----------------|------|------------------------------------|
-| `remote-header` | 3001 | Top navigation, cart badge, user   |
-| `remote-products`| 3002 | Product catalog + "Add to Cart"   |
-| `remote-cart`   | 3003 | Shopping cart                     |
-| `remote-user`   | 3004 | Login / Logout / Profile          |
+| Remote            | Port | Responsibility                   |
+| ----------------- | ---- | -------------------------------- |
+| `remote-header`   | 3001 | Top navigation, cart badge, user |
+| `remote-products` | 3002 | Product catalog + "Add to Cart"  |
+| `remote-cart`     | 3003 | Shopping cart                    |
+| `remote-user`     | 3004 | Login / Logout / Profile         |
 
 ### State Management
 
@@ -39,12 +39,12 @@ A simple, real-life example of **Micro Frontend Architecture** using **Webpack 5
 
 ### Communication Patterns
 
-| Direction        | How it works                              |
-|------------------|-------------------------------------------|
-| Host → Remote    | Shared store + EventBus                   |
-| Remote → Host    | EventBus (`eventBus.emit`)                |
-| Remote → Remote  | EventBus (pub/sub)                         |
-| Shared data      | Shared Redux-like store (Zustand style)   |
+| Direction       | How it works                            |
+| --------------- | --------------------------------------- |
+| Host → Remote   | Shared store + EventBus                 |
+| Remote → Host   | EventBus (`eventBus.emit`)              |
+| Remote → Remote | EventBus (pub/sub)                      |
+| Shared data     | Shared Redux-like store (Zustand style) |
 
 ## Quick Start
 
@@ -86,6 +86,7 @@ micro-frontend-demo/
 ## Real-life Analogy
 
 Think of an e-commerce site:
+
 - **Host** = main layout / shell
 - **Header** = always visible navigation
 - **Products** = product listing page
